@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ginger Payments - Frontend Assignment</title>
+    <link rel="shortcut icon" href="favicon.png">
+  
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Open Sans;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        aside {
+            display: flex;
+            flex-direction: column;
+            width: 15%;
+            height: 100%;
+        }
+        
+        button {
+            margin: 5px;
+            padding: 5px;
+        }
+        
+        main {
+            display: flex;
+            width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+        
+        section#table-section {
+            float: left;
+            position: relative;
+            width: 60%;
+            margin-left: 20px;
+        }
+        
+        section#add-form {
+            float: right;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .alert{
+            display:none; 
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Assignment</h1>
+    </header>
+    <main>
+        <aside>
+            <button class="js-action-callbackbutton btn btn-info">Callback</button>
+            <button class="js-action-promisebutton btn btn-info">Promise</button>
+            <div id="filter-payment-dropdown" class="dropdown">
+                <button class="btn btn-info" type="button" data-toggle="dropdown">Filter Payment-Method
+    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" data-payment-method="ideal" data-payment-name="iDeal">iDeal</a></li>
+                    <li><a href="#" data-payment-method="creditcard" data-payment-name="Credit Card">Credit Card</a></li>
+                    <li><a href="#" data-payment-method="bank-transfer" data-payment-name="Bank Transfer">Bank Transfer</a></li>
+                </ul>
+            </div>
+        </aside>
+        <section id="table-section">
+            <!-- Payments Table -->
+            <div id="payment-table"></div>
+            <div class="alert js-payment-added">
+              
+            </div>
+        </section>
+
+        <section id="add-form">
+            <!-- Form -->
+            <form>
+                <div class="form-group">
+                    <div id="add-payment-method-dropdown" class="dropdown">
+                        <button class="btn btn-default" type="button" data-toggle="dropdown">Payment Method
+    <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-payment-method="ideal" data-payment-name="iDeal">iDeal</a></li>
+                            <li><a href="#" data-payment-method="creditcard" data-payment-name="Credit Card">Credit Card</a></li>
+                            <li><a href="#" data-payment-method="bank-transfer" data-payment-name="Bank Transfer">Bank Transfer</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="add-currency-dropdown" class="dropdown">
+                    <button type="button"  class="btn btn-default" data-toggle="dropdown">Currency
+    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-currency-type="USD">USD</a></li>
+                        <li><a href="#" data-currency-type="EUR">EUR</a></li>
+                        <li><a href="#" data-currency-type="AUD">AUD</a></li>
+                        <li><a href="#" data-currency-type="GBP">GBP</a></li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" class="form-control" id="amount">
+                </div>
+                <div class="form-group">
+                    <label for="merchant">Merchant Name:</label>
+                    <input type="text" class="form-control" id="merchant">
+                </div>
+
+                <button class="js-action-addpayment btn btn-success">Add payment</button>
+            </form>
+
+        </section>
+    </main>
+    <script src="helper.js"></script>
+    <script src="db.js"></script>
+    <script src="model.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
