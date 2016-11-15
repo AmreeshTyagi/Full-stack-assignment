@@ -12,12 +12,12 @@ var db = (function(options) {
                 });
         },
 
-        getPaymentByMerchentName: function() {
+        getPaymentByMerchentName: function(name) {
 
             var d = $.Deferred();
             $.ajax({
                 method: "GET",
-                url: apiBaseUrl + '?merchant=Ginger'
+                url: apiBaseUrl + '?merchant='+name
             })
                 .done(function(response) {
                     d.resolve(response);

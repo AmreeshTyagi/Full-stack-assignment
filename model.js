@@ -49,10 +49,10 @@ var model = (function (options) {
             });
         },
 
-        getPaymentByMerchentName: function () {
+        getPaymentByMerchentName: function (name) {
             var d = $.Deferred();
 
-            db.getPaymentByMerchentName()
+            db.getPaymentByMerchentName(name)
                 .done(function (data) {
                     d.resolve(data);
                 })

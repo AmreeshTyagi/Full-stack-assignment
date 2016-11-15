@@ -23,9 +23,10 @@
     };
 
     var promiseButtonAction = function () {
-        model.getPaymentByMerchentName().then(function (response) {
+        var name='Ginger';
+        model.getPaymentByMerchentName(name).then(function (response) {
             _data = response;
-            options.tableName = 'Merchant Table using Promise';
+            options.tableName = 'Merchant data using Promise for merchant name '+name;
             _renderPaymentTable(options, response);
         });
     };
